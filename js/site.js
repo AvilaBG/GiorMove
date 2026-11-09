@@ -18,7 +18,13 @@ $('#ano').textContent = new Date().getFullYear();
 
 // ---------- header / menu ----------
 const hdr = $('#hdr');
-const onScroll = () => hdr.classList.toggle('scrolled', scrollY > 40);
+const fab = $('#fab'), rodape = document.querySelector('footer');
+const onScroll = () => {
+  hdr.classList.toggle('scrolled', scrollY > 40);
+  // o botão do WhatsApp nunca cobre o rodapé (link do painel): sobe o quanto o rodapé estiver visível
+  fab.style.setProperty('--lift', Math.max(0, innerHeight - rodape.getBoundingClientRect().top) + 'px');
+};
+addEventListener('resize', onScroll);
 addEventListener('scroll', onScroll, { passive: true }); onScroll();
 $('#menuBtn').onclick = () => $('#nav').classList.toggle('on');
 $('#nav').onclick = e => e.target.closest('a') && $('#nav').classList.remove('on');

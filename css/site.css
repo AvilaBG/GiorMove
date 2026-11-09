@@ -260,7 +260,7 @@ footer a:hover { color: var(--gold-1); }
 }
 
 /* ---------- botão flutuante WhatsApp ---------- */
-.fab { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 60; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: #1a1305; box-shadow: 0 14px 30px -8px rgba(0, 0, 0, .7), 0 0 0 0 rgba(226, 184, 90, .5); animation: fabPing 2.6s infinite; transition: transform .3s var(--ease); }
+.fab { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom) + var(--lift, 0px)); /* --lift: sobe acima do rodapé (site.js) */ z-index: 60; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: #1a1305; box-shadow: 0 14px 30px -8px rgba(0, 0, 0, .7), 0 0 0 0 rgba(226, 184, 90, .5); animation: fabPing 2.6s infinite; transition: transform .3s var(--ease); }
 .fab svg { width: 28px; height: 28px; }
 .fab:hover { transform: scale(1.08); }
 @keyframes fabPing { 70% { box-shadow: 0 14px 30px -8px rgba(0, 0, 0, .7), 0 0 0 16px rgba(226, 184, 90, 0); } }
