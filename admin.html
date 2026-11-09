@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel GIOR · Gestão da loja</title>
+  <link rel="icon" href="assets/badge.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4Z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M8 11h8M8 15h8M8 19h4"/></symbol>
+  <symbol id="i-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<aside class="side" id="side">
+  <a class="brand" href="index.html"><img src="assets/badge.png" alt=""><span>GIOR<small>PAINEL</small></span></a>
+  <nav id="tabs">
+    <button data-v="dash" class="on"><svg><use href="#i-dash"/></svg>Dashboard</button>
+    <button data-v="prod"><svg><use href="#i-tag"/></svg>Produtos</button>
+    <button data-v="cat"><svg><use href="#i-layers"/></svg>Categorias</button>
+    <button data-v="ped"><svg><use href="#i-list"/></svg>Pedidos<span class="count" id="navCount"></span></button>
+  </nav>
+  <div class="bottom">
+    <a class="lnk" href="index.html" target="_blank"><svg><use href="#i-ext"/></svg>Ver site</a>
+    <button class="lnk" id="resetBtn"><svg><use href="#i-reset"/></svg>Restaurar dados demo</button>
+  </div>
+</aside>
+
+<main>
+  <div class="top">
+    <img src="assets/badge.png" alt="" class="m-only" style="width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 1px rgba(226,184,90,.5)">
+    <div><h1 id="title">Dashboard</h1><p id="subtitle"></p></div>
+    <button class="icon-btn bell" id="bellBtn" aria-label="Notificações" aria-expanded="false"><svg><use href="#i-bell"/></svg><span class="count" id="bellCount"></span></button>
+    <button class="icon-btn m-only" id="resetBtn2" aria-label="Restaurar dados demo"><svg><use href="#i-reset"/></svg></button>
+    <div class="actions" id="topActions"></div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <section class="view on" id="v-dash">
+    <div class="kpis" id="kpis"></div>
+    <div class="dash-grid">
+      <div class="panel rev"><h3>Receita diária <small id="mesLbl"></small></h3><div class="chart-box"><canvas id="cRev"></canvas></div></div>
+      <div class="panel"><h3>Mais vendidos <small>unidades no mês</small></h3><div class="chart-box pie"><canvas id="cPie"></canvas></div><div class="legend" id="pieLegend"></div></div>
+      <div class="panel"><h3>Precisam de atenção <small>mais atrasados primeiro</small></h3><div class="attn" id="attn"></div></div>
+      <div class="panel" style="align-self:start"><h3>Pedidos em andamento <small>por etapa</small></h3><div class="funnel" id="funnel"></div></div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="view" id="v-prod">
+    <div class="kpis" id="prodKpis"></div>
+    <div class="tools">
+      <div class="search"><svg><use href="#i-search"/></svg><input id="pSearch" placeholder="Buscar produto..."></div>
+      <select id="pCat"><option value="">Todas as categorias</option></select>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Estoque</th><th>Vendidos no mês</th><th></th></tr></thead>
+      <tbody id="pBody"></tbody>
+    </table></div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="view" id="v-cat">
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+  <!-- PEDIDOS -->
+  <section class="view" id="v-ped">
+    <div class="tools" id="stChips"></div>
+    <div class="tools" style="margin-top:0">
+      <div class="search"><svg><use href="#i-search"/></svg><input id="oSearch" placeholder="Buscar por código, cliente, telefone..."></div>
+      <select id="oScope"><option value="abertos">Em andamento</option><option value="finalizados">Finalizados</option><option value="todos">Todos</option></select>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Prioridade</th><th>Pedido</th><th>Cliente</th><th>Itens</th><th>Total</th><th>Tipo</th><th>Status</th><th>Contato</th></tr></thead>
+      <tbody id="oBody"></tbody>
+    </table></div>
+  </section>
+</main>
+
+<div class="notif" id="notif" hidden>
+  <header><b>Notificações</b><button class="lnk-btn" id="readAll">Marcar todas como lidas</button></header>
+  <div class="sim">
+    <span class="sim-t">Demonstração da integração</span>
+    <p class="muted">No sistema real, cada mensagem nova no WhatsApp ou no Direct cria o pedido sozinha e avisa aqui.</p>
+    <div class="sim-b"><button class="btn sm dark" data-sim="WhatsApp"><svg><use href="#i-chat"/></svg>Simular WhatsApp</button><button class="btn sm dark" data-sim="Direct"><svg><use href="#i-insta"/></svg>Simular Direct</button></div>
+    <label class="switch"><input type="checkbox" id="autoMsgs"><span></span>Receber mensagens automáticas (a cada 30s)</label>
+  </div>
+  <div class="notif-list" id="notifList"></div>
+</div>
+<dialog id="dlg"></dialog>
+<div class="toast" id="toast"></div>
+
+<script src="js/store.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
