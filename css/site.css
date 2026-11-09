@@ -315,3 +315,15 @@ footer a:hover { color: var(--gold-1); }
   .fab { width: 54px; height: 54px; right: 14px; }
   footer .wrap { flex-direction: column; text-align: center; padding-bottom: 60px; }
 }
+
+/* anéis dourados e brilhos na frente do logo */
+.emblem img { z-index: 1; }
+.emblem .ring { z-index: 2; pointer-events: none; filter: drop-shadow(0 0 6px rgba(251, 231, 161, .55)); }
+.emblem .spark { z-index: 3; }
+/* alinhado exatamente ao anel escuro do logo e movendo junto com ele (parallax igual ao da imagem) */
+.emblem .ring { left: 21%; top: 8%; width: 58%; height: 58%; translate: var(--mx, 0px) var(--my, 0px); }
+.emblem .ring.r2 { left: 19%; top: 6%; width: 62%; height: 62%; }
+.emblem .ring:not(.r2) { -webkit-mask: radial-gradient(closest-side, transparent 94%, #000 95.5%); mask: radial-gradient(closest-side, transparent 94%, #000 95.5%); }
+/* gira no sentido anti-horário, como a flecha do logo (cabeça brilhante na frente, rastro atrás) */
+.emblem .ring:not(.r2) { background: conic-gradient(from 0deg, transparent 0 10%, var(--gold-1) 20%, var(--gold-3) 35%, transparent 45%); animation-direction: reverse; }
+.emblem .ring.r2 { animation-direction: normal; }
