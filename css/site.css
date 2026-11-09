@@ -1,4 +1,7 @@
 /* ---------- layout ---------- */
+/* compensa o header fixo ao navegar por âncoras (#colecao, #pagamento...) */
+html { scroll-padding-top: 100px; }
+@media (max-width: 560px) { html { scroll-padding-top: 82px; } }
 .wrap { width: min(1200px, 100% - 40px); margin-inline: auto; }
 section { position: relative; }
 .eyebrow { font-family: var(--f-brand); font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-2); display: inline-flex; align-items: center; gap: .8rem; }
@@ -12,7 +15,9 @@ section { position: relative; }
 .concrete .gold-text { background-image: linear-gradient(135deg, #c99a3e 0%, #8a5f17 35%, #d9ad55 60%, #7a5518 85%, #c99a3e 100%); filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .6)); }
 .concrete .eyebrow { color: #8a6420; }
 .concrete > * { position: relative; }
-.pad { padding: clamp(80px, 11vw, 140px) 0; }
+.pad { --pad: clamp(80px, 11vw, 140px); padding: var(--pad) 0; }
+/* menu leva ao título da seção, não ao topo do espaçamento (seções com padding-top próprio ficam de fora) */
+section.pad[id]:not([style]) { scroll-margin-top: calc(14px - var(--pad)); }
 
 /* reveal on scroll */
 .rv { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
@@ -235,7 +240,7 @@ footer a:hover { color: var(--gold-1); }
   .cats { grid-template-columns: repeat(2, 1fr); }
   .steps, .pays, .modes { grid-template-columns: 1fr; }
   .steps-line { display: none; }
-  .pin { max-width: 300px; margin-inline: auto; }
+  .pin { max-width: 300px; margin-inline: auto; order: 2; }
   .nav { position: fixed; inset: 76px 0 auto; flex-direction: column; gap: 0; background: rgba(11, 12, 15, .96); backdrop-filter: blur(14px); color: var(--text); padding: .5rem 20px 1.2rem; transform: translateY(-120%); transition: transform .5s var(--ease); z-index: -1; }
   .nav a { padding: .9rem 0; border-bottom: 1px solid var(--line); }
   .nav.on { transform: none; }
@@ -268,7 +273,7 @@ footer a:hover { color: var(--gold-1); }
   .hero .wrap { gap: 1.2rem; }
 }
 @media (max-width: 560px) {
-  .pad { padding: 72px 0; }
+  .pad { --pad: 72px; }
   .hero h1 { font-size: clamp(3.2rem, 17vw, 4.6rem); }
   .hero .lead { margin: 1.2rem 0 1.6rem; font-size: 1rem; }
   .hero-cta .btn { flex: 1; }
